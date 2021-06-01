@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dish;
 use App\Models\Menu;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -25,6 +26,8 @@ class MenuController extends Controller
     			->has(Dish::factory()->main()->count(3), 'dishes')
     			->create(['served_at' => $day]);
     	}
+
+        $day = Carbon::parse($day)->format('Y. m. d.');
 
     	return view('menu_creation', compact('day', 'menu'));
     }

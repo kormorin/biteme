@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('menu', 'MenuController@daySelection')->name('menu');
 	Route::get('menu/{day}', 'MenuController@menuCreation')->name('menu_creation');
+
+	Route::get('orders', 'OrderController@show')->name('orders');
 });
 
 

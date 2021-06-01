@@ -40,16 +40,8 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach($orders as $order)
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $dish->getType() }}
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $dish->hu_name }}
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $dish->en_name }}
-                                            </td>
+                                        @foreach($menu->dishes as $dish)
+                                            @livewire('dish-table-row', compact('dish'))
                                         @endforeach
                                         <!-- More people... -->
                                     </tbody>

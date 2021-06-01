@@ -13,9 +13,14 @@
 <div class="py-12">
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex">
             <div class="p-6 bg-white border-b border-gray-200 align-middle">
-                        <input type="text" id="datepicker" class="align-middle">
+                <label class="block font-medium text-lg">
+                    {{__('Choose a day')}}
+                </label>
+            </div>
+            <div class="flex-1 p-6 flex content-center">
+                <input type="text" id="datepicker" class="align-middle" autocomplete="off">
             </div>
         </div>
     </div>
