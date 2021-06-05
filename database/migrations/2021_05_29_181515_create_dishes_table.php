@@ -16,7 +16,7 @@ class CreateDishesTable extends Migration
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('menu_id')->references('id')->on('menus');
-            $table->foreignId('type')->references('id')->on('dish_types');
+            $table->foreignId('type_id')->references('id')->on('dish_types');
             $table->string('hu_name')->default('');
             $table->string('en_name')->default('');
             $table->timestamps();
