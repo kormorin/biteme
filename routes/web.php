@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('menu', 'MenuController@daySelection')->name('menu');
+
 Route::domain('portal.' . config('app.url'))->group(function() {
 	Route::get('/', function () {
 	    return 'asf';
