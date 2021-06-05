@@ -3,12 +3,12 @@
  	    <td class="px-6 py-4 whitespace-nowrap">
  	    	<select wire:model="dish_type">
 	 	    	@foreach(\App\Models\DishType::all() as $type)
-	 	    		<option value="{{$type->id}}" @if($dish->type_id === $type->id)selected="selected"@endif>
+	 	    		<option value="{{$type->id}}" @if($dish->type_id === $type->id) selected="selected" @endif>
 	 	    			{{ $type->name }}
 	 	    		</option>
 	 	    	@endforeach
-	 	    	{{ $dish_type }}
- 	    	</select>	    </td>
+ 	    	</select>
+ 	    </td>
 	    <td class="px-6 py-4 whitespace-nowrap">
 	    	<input type="text" value="{{ $dish->hu_name }}" wire:model="hu_name" />
 	    </td>

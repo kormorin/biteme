@@ -14,6 +14,13 @@ class DishTableRow extends Component
 	public $hu_name;
 	public $en_name;
 
+    public function mount()
+    {
+        $this->dish_type = $this->dish->type_id;
+        $this->hu_name = $this->dish->hu_name;
+        $this->en_name = $this->dish->en_name;
+    }
+
     public function render()
     {
         return view('livewire.dish-table-row', ['edit' => true]);
@@ -26,7 +33,6 @@ class DishTableRow extends Component
 
     public function save()
     {
-//    	dd($this->dish_type);
     	$this->dish->hu_name = $this->hu_name;
     	$this->dish->en_name = $this->en_name;
     	$this->dish->type_id = $this->dish_type;
