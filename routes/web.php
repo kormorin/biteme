@@ -13,8 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::domain('portal.' . config('app.url'))->group(function() {
+	Route::get('/', function () {
+	    return 'asf';
+	});
 
-Route::group(['middleware' => 'auth'], function() {
+});
+
+
+Route::domain('admin.' . config('app.url'))->middleware('auth')->group(function() {
 	Route::get('/', function () {
 	    return redirect(route('menu'));
 	})->name('dashboard');
