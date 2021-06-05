@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return 'bbb';
+});
+
 Route::get('menu', 'MenuController@daySelection')->name('menu');
 
 Route::domain('portal.' . config('app.url'))->group(function() {
