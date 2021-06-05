@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'bbb';
+    return 'bbb2';
 });
 
 Route::get('menu', 'MenuController@daySelection')->name('menu');
