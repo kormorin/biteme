@@ -17,6 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
+//        dd('asdf');
         return view('auth.login');
     }
 
@@ -51,4 +52,30 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
+    public $site;
+    public function storeAdmin(LoginRequest $request)
+    {
+        $this->site = 'admin';
+        return $this->store($request);
+    }
+
+
+    public function createAdmin()
+    {
+        return $this->create();
+    }
+
+
+    public function storeGuest(LoginRequest $request)
+    {
+        return $this->store($request);
+    }
+
+
+    public function createGuest()
+    {
+        return $this->create();
+    }    
+
 }

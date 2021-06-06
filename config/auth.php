@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'guest_users' => [
+            'driver' => 'session',
+            'provider' => 'guest_users',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -69,6 +74,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\AdminUser::class,
+        ],
+
+        'guest_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\GuestUser::class,
         ],
 
         // 'users' => [

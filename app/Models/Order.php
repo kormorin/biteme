@@ -15,7 +15,7 @@ class Order extends Model
     }
 
     public function user()
-    {
-    	
+    
+{    	
     }
 }

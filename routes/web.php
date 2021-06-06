@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,22 @@ Route::get('/', function () {
 */
 Route::get('menu', 'MenuController@daySelection')->name('menu');
 
-Route::domain('portal.' . config('app.url'))->group(function() {
-	Route::get('/', function () {
-	    return 'asf';
-	});
+Route::domain('admin.' . config('app.url'))->group(function() {
 
+	Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+	                ->middleware('guest')
+	                ->name('login');
+
+	Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+	                ->middleware('guest');
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+                ->middleware('auth')
+                ->name('logout');
 });
 
-
 Route::domain('admin.' . config('app.url'))->middleware('auth')->group(function() {
+
 	Route::get('/', function () {
 	    return redirect(route('menu'));
 	})->name('dashboard');
@@ -43,5 +51,25 @@ Route::domain('admin.' . config('app.url'))->middleware('auth')->group(function(
 	Route::get('orders', 'OrderController@show')->name('orders');
 });
 
+Route::domain('guest.' . config('app.url'))->group(function() {
+	Route::get('/login', 'GuestLoginController@show')
+	                ->middleware('guest')
+	                ->name('guest_login');
 
-require __DIR__.'/auth.php';
+	Route::post('/login', 'GuestLoginController@authenticate')
+	                ->middleware('guest');
+
+});
+
+Route::domain('guest.' . config('app.url'))->middleware('auth:guest_users')->group(function() {
+	Route::get('/', function () {
+	    return 'asf';
+	})->name('guest_dashboard');
+
+	Route::get('/user_completion', 'GuestController@userCompletion')->name('guest_user_completion');
+
+});
+
+
+
+//require __DIR__.'/auth.php';
