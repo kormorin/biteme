@@ -8,9 +8,9 @@
     <div class="md:grid md:grid-cols-3 md:gap-6 py-6">
         <div class="md:col-span-1 flex justify-between">
             <div class="px-4 sm:px-0">
-                <h3 class="text-lg font-medium text-gray-900">Profile Information</h3>
+                <h3 class="text-lg font-medium text-gray-900">{{ __('Profile Information') }}</h3>
                 <p class="mt-1 text-sm text-gray-600">
-                    Update your account's profile information and email address.
+                    {{--Update your account's profile information and email address.--}}
                 </p>
             </div>
             <div class="px-4 sm:px-0">
@@ -74,7 +74,7 @@
                 <div class="px-4 sm:px-0">
                     <h3 class="text-lg font-medium text-gray-900">{{__('Update Password')}}</h3>
                     <p class="mt-1 text-sm text-gray-600">
-                        {{__('Here is where you can change your password.')}}
+                        {{--__('Here is where you can change your password.')--}}
                     </p>
                 </div>
                 <div class="px-4 sm:px-0">
@@ -101,7 +101,7 @@
                             --}}
                             <div class="col-span-6 sm:col-span-4">
                                 <label class="block font-medium text-sm text-gray-700" for="password">
-                                    New Password
+                                    {{__('New Password')}}
                                 </label>
                                 <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" id="password" name="password" type="password" autocomplete="new-password">
                                 @if($errors->has('password'))
@@ -112,7 +112,7 @@
                             </div>
                             <div class="col-span-6 sm:col-span-4">
                                 <label class="block font-medium text-sm text-gray-700" for="password_confirmation">
-                                    Confirm Password
+                                    {{ __('Confirm Password')}}
                                 </label>
                                 <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password">
                             </div>

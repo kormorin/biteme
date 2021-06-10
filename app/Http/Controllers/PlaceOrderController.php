@@ -41,6 +41,12 @@ class PlaceOrderController extends Controller
 
     public function placeOrder(Request $request, $day)
     {
+        if(!$request->has('dishes') || !is_array($request->dishes))
+        {
+            $error = __('Wait a minute, you haven\'t selected anything! Are you not hungry?');
+            return back()->withErrors([$error]);
+        }
+
     	$dishes = Dish::whereIn('id', $request->dishes)->listable()->get();
     	$menu = Menu::where('served_at', $day)->first();
 
@@ -89,6 +95,6 @@ class PlaceOrderController extends Controller
 
     	}    		
 
-    	return back()->with('success', 'Order saved.');
+    	return back()->with('success', __('Order saved.'));
     }
 }

@@ -34,14 +34,28 @@
                                                 {{ __('Department') }}
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                {{ __('# of orders') }}
+                                                {{ __('Number of orders') }}
                                             </th>
                                         </tr>
                                     </thead>
                                         @foreach($rows as $row)
                                             <tbody class="bg-white divide-y divide-gray-200" x-data="{ visible: false}">
                                             <tr>
-                                                <td class="p-2 font-l bg-red-500" @click="visible = !visible;" x-text="visible ? '-' : '+'"></td>
+                                                <td class="font-l w-20">
+                                                    @if(!empty($row['sub_rows']))
+                                                        <button class="
+                                                            inline-flex items-center
+                                                            px-4 py-2 bg-gray-800
+                                                            border border-transparent
+                                                            rounded-md font-semibold text-xs text-white uppercase
+                                                            tracking-widest hover:bg-gray-700
+                                                            active:bg-gray-900
+                                                            focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition"
+                                                            x-text="visible ? '{{ __('hide') }}' : '{{ __('by department') }}'"
+                                                             @click.prevent="visible = !visible;" >
+                                                        </button>
+                                                    @endif
+                                                </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     {{ $row['dish_name'] }}
                                                 </td>

@@ -41,6 +41,17 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <div class="flex-1 felx align-center justify-center content-center">
+                    [
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="?set_locale_to=hu">
+                            HU
+                        </a>
+                        /
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900"  href="?set_locale_to=en">
+                            EN
+                        </a>
+                    ]
+                </div>
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}

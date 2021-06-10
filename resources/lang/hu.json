@@ -1,5 +1,33 @@
 {
+	"Remember me": "Emlékezz rám",
 	"Log Out": "Kijelentkezés",
-	"Profile": "Profilom"
-	"Menus": "Menük"
+	"Profile": "Profilom",
+	"Menus": "Menük",
+	"Orders": "Rendelések",
+	"Forgot your password?": "Elfelejtette jelszavát?",
+	"Log in": "Bejelentkezés",
+	"Choose a day": "Válasszon napot",
+	"Save": "Mentés",
+	"Edit": "Szerkesztés",
+	"Dish type": "Kategória",
+	"NAME (HUNGARIAN)": "Megnevezés magyarul",
+	"NAME (ENGLISH)": "Megnevezés angolul",
+	"Profile Information": "Adataim",
+	"Name": "Név",
+	"Update Password": "Jelszó módosítása",
+	"New Password": "Új jelszó",
+	"Confirm Password": "Jelszó még egyszer",
+	"Profile update successful": "Adatait sikeresen mentettük",
+	"Dish": "Étel",
+	"Department": "Részleg",
+	"Number of orders": "Rendelések száma",
+	"by department": "részlegenként",
+	"hide": "Ne mutasd",
+	"Place order": "Rendelés leadása",
+	"Choose your menu for ": "Válassza ki menüjét a következő napra: ",
+	"Save order": "Rendelés elmentése",
+	"Wait a minute, you haven't selected anything! Are you not hungry?": "Hoppá nem választottál semmit. Nem vagy éhes?",
+	"Order saved.": "Rendelés elmentve.",
+	"You are only allowed to pick one of each categories of meals (main dish, dessert, etc.) Please modify your order accordingly": 
+		"Minden kategóriából (levesből/főételből/desszertből stb.) csak egyet szabad választani. Kérjük ilyne módon állítsa össze rendelését"
 }

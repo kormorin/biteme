@@ -4,11 +4,13 @@
         <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
 
 @endsection
-<x-app-layout>
+<x-guest-user-layout>
 <x-slot name="header">
+    {{--
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
     {{ __('Dashboard') }}
     </h2>
+        --}}
 </x-slot>
 <div class="py-12">
 
@@ -37,7 +39,7 @@
         </div>
     </div>
 </div>
-</x-app-layout>
+</x-guest-user-layout>
 
 <script>
     var picker = new Pikaday({
