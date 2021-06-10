@@ -66,7 +66,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('guest.profile')" :active="request()->routeIs('profile')">
+            <x-responsive-nav-link :href="route('guest.profile')" :active="request()->routeIs('guest.profile')">
                         {{ __('Profile') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('guest.place_order')" :active="request()->routeIs('guest.place_order')">
