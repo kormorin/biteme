@@ -17,15 +17,11 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('guest_users');
             $table->foreignId('department_id')->references('id')->on('departments');
+            $table->foreignId('menu_id')->references('id')->on('menus');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('orders');

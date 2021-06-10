@@ -5,18 +5,18 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('menu') }}">
+                    <a href="{{ route('guest.profile') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
+                    <x-nav-link :href="route('guest.profile')" :active="request()->routeIs('profile')">
                         {{ __('Profile') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('menu')" :active="request()->routeIs('dashboard')">
-                        {{ __('Place an order') }}
+                    <x-nav-link :href="route('guest.place_order')" :active="request()->routeIs('dashboard')">
+                        {{ __('Place order') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -38,7 +38,7 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('guest.logout') }}">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"

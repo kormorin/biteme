@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class OrderItem extends Model
 {
     use HasFactory;
 
-    public function dishes()
+    public function dish()
     {
-    	return $this->hasMany(Dish::class);
+    	return $this->belongsTo(Dish::class);
     }
 
-    public function orders()
+    public function order()
     {
-    	return $this->hasMany(Order::class);
+    	return $this->belongsTo(Order::class);
     }
 }

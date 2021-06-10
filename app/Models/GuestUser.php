@@ -13,9 +13,13 @@ class GuestUser extends Authenticatable
 
     public const first_password = 'aa';
 
-    public function getNameSetAttribute()
+    public function department()
     {
-    	return $this->name != '';
+    	return $this->belongsTo(Department::class);
     }
 
+    public function registrationCompleted()
+    {
+    	$this->name != '' && !is_null($this->department_id);
+    }
 }

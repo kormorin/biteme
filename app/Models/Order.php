@@ -14,8 +14,23 @@ class Order extends Model
     	return $this->belongsTo(Department::class);
     }
 
-    public function user()
-    
-{    	
+    public function user()    
+	{
+		return $this->belongsTo(GuestUser::class);    	
+    }
+
+    public function items()
+    {
+    	return $this->hasMany(OrderItem::class);
+    }
+
+    public function includes(Dish $dish)
+    {
+    	return !$this->items->where('dish_id', $dish->id)->isEmpty();
+    }
+
+    public function getDepartmentNameAttribute()
+    {
+    	return $this->department->nameText;
     }
 }

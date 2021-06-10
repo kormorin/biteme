@@ -29,7 +29,7 @@ Route::domain('admin.' . config('app.url'))->group(function() {
 	Route::post('/login', [AuthenticatedSessionController::class, 'store'])
 	                ->middleware('guest');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+	Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout');
 });
@@ -48,7 +48,8 @@ Route::domain('admin.' . config('app.url'))->middleware('auth')->group(function(
 	Route::get('menu', 'MenuController@daySelection')->name('menu');
 	Route::get('menu/{day}', 'MenuController@menuCreation')->name('menu_creation');
 
-	Route::get('orders', 'OrderController@show')->name('orders');
+	Route::get('orders', 'OrderController@daySelection')->name('orders');
+	Route::get('orders/{day}', 'OrderController@reviewOrders');
 });
 
 Route::domain('guest.' . config('app.url'))->group(function() {
@@ -59,17 +60,24 @@ Route::domain('guest.' . config('app.url'))->group(function() {
 	Route::post('/login', 'GuestLoginController@authenticate')
 	                ->middleware('guest');
 
+	Route::post('/logout', 'GuestLoginController@logout')
+                ->middleware('auth')
+                ->name('guest.logout');
 });
 
 Route::domain('guest.' . config('app.url'))->middleware('auth:guest_users')->group(function() {
-	Route::get('/', function () {
-	    return 'asf';
-	})->name('guest_dashboard');
+	Route::get('/', 'GuestProfileController@index')->name('guest.profile');
+	Route::post('update_profile', 'GuestProfileController@updateProfile')->name('guest.update_profile');
+	Route::post('update_password', 'GuestProfileController@updatePassword')->name('guest.update_password');
 
-	Route::get('/user_completion', 'GuestController@userCompletion')->name('guest_user_completion');
+	Route::get('place_order', 'PlaceOrderController@daySelection')->name('guest.place_order');
+	Route::get('place_order/{day}', 'PlaceOrderController@chooseFromMenu');
+	Route::post('place_order/{day}', 'PlaceOrderController@placeOrder');
+//	Route::post('update_password', 'GuestProfileController@updatePassword')->name('guest.place_order');
+//	Route::get('/', 'GuestController@userCompletion')->name('guest_user_completion');
 
 });
 
 
 
-//require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';

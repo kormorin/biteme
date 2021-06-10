@@ -16,6 +16,8 @@ class GuestLoginController extends Controller
 
     public function authenticate(Request $request)
     {
+    	$remember_me = $request->remember === 'on';
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -36,12 +38,12 @@ class GuestLoginController extends Controller
 
 	        	auth('guest_users')->login($new_user);
 
-	        	return redirect(route('guest_user_completion'));
+	        	return redirect(route('guest_login'));
 	        }
         }
 
 //    	dd($credentials);
-        if (Auth::guard('guest_users')->attempt($credentials)) {
+        if (Auth::guard('guest_users')->attempt($credentials, $remember_me)) {
             $request->session()->regenerate();
 
             return redirect()->intended('guest_dashboard');
@@ -50,5 +52,17 @@ class GuestLoginController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
+    }
+
+    public function logout()
+    {
+        Auth::guard('guest_users')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+
     }
 }
