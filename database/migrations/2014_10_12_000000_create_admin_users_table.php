@@ -17,7 +17,7 @@ class CreateAdminUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->boolean('is_super_admin')->default(false);
+            $table->boolean('is_super_user')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

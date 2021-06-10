@@ -42,8 +42,9 @@ Route::domain('admin.' . config('app.url'))->middleware('auth')->group(function(
 
 	//profile
 	Route::get('profile', 'ProfileController@show')->name('profile');
-	Route::post('update_profile', 'ProfileController@updateProfile')->name('update_profile');
+	Route::post('update_profile', 'ProfileController@updateProfile')->name('update_profile');//
 	Route::post('update_password', 'ProfileController@updatePassword')->name('update_password');
+	Route::post('create_new_admin', 'ProfileController@createNewAdmin')->name('create_new_admin');
 
 	Route::get('menu', 'MenuController@daySelection')->name('menu');
 	Route::get('menu/{day}', 'MenuController@menuCreation')->name('menu_creation');

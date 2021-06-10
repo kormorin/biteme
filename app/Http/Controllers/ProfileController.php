@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -39,5 +40,23 @@ class ProfileController extends Controller
         ]);
 
     	return redirect(route('profile'))->with('password_update_message', __('Password update successful'));
+    }
+
+    public function createNewAdmin(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => ['required', 'confirmed'],
+        ]);
+
+        AdminUser::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'remember_token' => Str::random(60),
+        ]);
+
+        return redirect(route('profile'))->with('create_admin_message', __('New admin created'));
     }
 }
