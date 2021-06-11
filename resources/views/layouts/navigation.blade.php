@@ -10,6 +10,20 @@
                     </a>
                 </div>
 
+                <div class="flex">
+                    <span class="inline-flex items-center px-1 pt-1 ">
+                        [
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="?set_locale_to=hu">
+                                HU
+                            </a>
+                            /
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900"  href="?set_locale_to=en">
+                                EN
+                            </a>
+                        ]
+                        
+                    </span>
+                </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
@@ -82,6 +96,7 @@
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
+
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>

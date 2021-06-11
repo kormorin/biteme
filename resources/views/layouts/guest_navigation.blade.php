@@ -9,6 +9,20 @@
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
+                <div class="flex">
+                    <span class="inline-flex items-center px-1 pt-1 ">
+                        [
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="?set_locale_to=hu">
+                                HU
+                            </a>
+                            /
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900"  href="?set_locale_to=en">
+                                EN
+                            </a>
+                        ]
+                        
+                    </span>
+                </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
