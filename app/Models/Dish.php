@@ -19,7 +19,10 @@ class Dish extends Model
         return $this->hasMany(OrderItem::class);
     }
 
-
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 
     public function scopeListable($query)
     {

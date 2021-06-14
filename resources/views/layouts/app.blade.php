@@ -16,6 +16,8 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        @livewireStyles
         @yield('scripts')
     </head>
     <body class="font-sans antialiased">
@@ -36,5 +38,7 @@
         </div>
         
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+        @livewireScripts
+
     </body>
 </html>

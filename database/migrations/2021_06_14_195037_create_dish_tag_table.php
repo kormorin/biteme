@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDishAttribuesTable extends Migration
+class CreateDishTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateDishAttribuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dish_attribues', function (Blueprint $table) {
+        Schema::create('dish_tag', function (Blueprint $table) {
             $table->id();
-            $table->string('hu_name');
-            $table->string('en_name');
+            $table->foreignId('dish_id')->references('id')->on('dishes');
+            $table->foreignId('tag_id')->references('id')->on('tags');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateDishAttribuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dish_attribues');
+        Schema::dropIfExists('dish_tag');
     }
 }

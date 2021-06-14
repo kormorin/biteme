@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDishAttribuesTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDishAttribuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dish_attribues', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->string('hu_name');
             $table->string('en_name');
@@ -28,6 +28,6 @@ class CreateDishAttribuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dish_attribues');
+        Schema::dropIfExists('tags');
     }
 }
