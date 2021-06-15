@@ -23,7 +23,7 @@ class PlaceOrderController extends Controller
     	if(!$menu)
     	{
 			$error = __('The menu for this day is not yet available.');
-			return redirectToRoute('menu')->withErrors([$error]);    		
+			return redirect(route('menu'))->withErrors([$error]);    		
     	}
 
     	$dishes = $menu->dishes()->listable()->with('type')->orderBy('type_id', 'asc')->get();

@@ -26,7 +26,7 @@ class OrdersForDepartmentController extends Controller
 			return back()->withErrors([$error]);    		
     	}
 
-    	$orders = Order::whereHas('menu_id', $menu->id)->where('department_id', $department_id)->get();
+    	$orders = Order::where('menu_id', $menu->id)->where('department_id', $department_id)->get();
 
     	$department = Department::find(auth()->user()->department_id);
 /*
