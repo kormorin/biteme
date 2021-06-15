@@ -28,6 +28,11 @@ class OrdersForDepartmentController extends Controller
 
     	$orders = Order::where('menu_id', $menu->id)->where('department_id', $department_id)->get();
 
+    	if($orders->isEmpty())
+    	{
+			$error = __('So fare there was not order added for this day:' . $day);
+			return back()->withErrors([$error]);    		
+    	}
     	$department = Department::find(auth()->user()->department_id);
 /*
     	$rows = [];

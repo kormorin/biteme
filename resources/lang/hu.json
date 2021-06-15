@@ -26,6 +26,7 @@
 	"hide": "Ne mutasd",
 	"Place order": "Rendelés leadása",
 	"Choose your menu for ": "Válassza ki menüjét a következő napra: ",
+	"Delete menu": "Menü törlése",
 	"Submit order": "Leadom a rendelést",
 	"Edit order": "Rendelés szerkesztése",
 	"Save order": "Rendelés elmentése",
@@ -37,5 +38,6 @@
 	"Create new admin user": "Új adminisztrátor létrehozása",
 	"Orders for": "Rendelések: ",
 	"Who ordered what": "Ki mit rendelt",
-	"Please give us your name, and the department you work for.": "Kérjük, adja meg nevét, és az Önhöz tartozó részleget."
+	"Please give us your name, and the department you work for.": "Kérjük, adja meg nevét, és az Önhöz tartozó részleget.",
+	"So fare there was not order added for this day: ": "Egyelőre nem érkezett rendelés erre a napra: "
 }
