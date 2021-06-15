@@ -21,6 +21,8 @@ class SetLocale
         {
             App::setLocale($request->set_locale_to);
             session(['locale' => $request->set_locale_to]);
+
+            return back();
 //            dd('asdf');
         }
         elseif(session()->has('locale'))
