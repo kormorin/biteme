@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\Menu;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
@@ -19,6 +20,11 @@ class OrdersForDepartmentController extends Controller
     	$department_id = auth()->user()->department_id;
 
     	$menu = Menu::where('served_at', $day)->first();
+    	if(!$menu)
+    	{
+			$error = __('The menu for this day is not yet available.');
+			return back()->withErrors([$error]);    		
+    	}
 
     	$orders = Order::whereHas('menu_id', $menu->id)->where('department_id', $department_id)->get();
 
