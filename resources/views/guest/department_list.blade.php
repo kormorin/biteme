@@ -65,7 +65,7 @@
     </div>
 </div>
 
-
+{{--
 <div class="">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -106,7 +106,7 @@
                                                 {{ $dish->nameText }}
                                             </td>                                            
                                             <td class="px-6 py-4 whitespace-nowrap">
-
+                                                {{ $orders }}
                                             </td>                                            
                                         </tr>
                                         @endforeach
@@ -122,6 +122,8 @@
         </div>
     </div>
 </div>
+
+--}}
 
 
 </x-guest-user-layout>
