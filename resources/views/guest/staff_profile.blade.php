@@ -17,6 +17,22 @@
         <div class="mt-5 md:mt-0 md:col-span-2">
             <form method="POST" action="{{ route('guest.update_profile') }}">
                 {{ csrf_field() }}
+                @cannot('completed-registration')
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-3">
+                        <div class="bg-blue-500 overflow-hidden shadow-sm sm:rounded-lg flex py-5">
+                            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex">
+                                <span class="text-md mx-2 text-white font-semibold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span class="text-md text-white font-semibold">
+                                    {{__('Please give us your name, and the department you work for.')}}                                    
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                @endcannot
                 <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md">
                     <div class="grid grid-cols-6 gap-6">
                         

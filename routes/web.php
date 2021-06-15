@@ -48,9 +48,11 @@ Route::domain('admin.' . config('app.url'))->middleware('auth')->group(function(
 
 	Route::get('menu', 'MenuController@daySelection')->name('menu');
 	Route::get('menu/{day}', 'MenuController@menuCreation')->name('menu_creation');
+	Route::post('delete_menu', 'MenuController@destroy')->name('delete_menu');
 
 	Route::get('orders', 'OrderController@daySelection')->name('orders');
 	Route::get('orders/{day}', 'OrderController@reviewOrders');
+
 });
 
 Route::domain('guest.' . config('app.url'))->group(function() {
@@ -74,6 +76,9 @@ Route::domain('guest.' . config('app.url'))->middleware('auth:guest_users')->gro
 	Route::get('place_order', 'PlaceOrderController@daySelection')->name('guest.place_order');
 	Route::get('place_order/{day}', 'PlaceOrderController@chooseFromMenu');
 	Route::post('place_order/{day}', 'PlaceOrderController@placeOrder');
+
+	Route::get('department_list', 'OrdersForDepartmentController@daySelection')->name('guest.department_list');
+	Route::get('department_list/{day}', 'OrdersForDepartmentController@show');
 //	Route::post('update_password', 'GuestProfileController@updatePassword')->name('guest.place_order');
 //	Route::get('/', 'GuestController@userCompletion')->name('guest_user_completion');
 

@@ -47,4 +47,9 @@ class Dish extends Model
         if(config('app.locale') === 'hu') return $this->hu_name;
         else return $this->en_name;
     }
+
+    public function getTagNamesAttribute()
+    {
+        return $this->tags->implode('name', ', ');
+    }
 }

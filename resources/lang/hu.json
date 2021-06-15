@@ -4,6 +4,7 @@
 	"Profile": "Profilom",
 	"Menus": "Menük",
 	"Orders": "Rendelések",
+	"My department": "Rendelések a részlegemnél",
 	"Forgot your password?": "Elfelejtette jelszavát?",
 	"Log in": "Bejelentkezés",
 	"Choose a day": "Válasszon napot",
@@ -25,10 +26,16 @@
 	"hide": "Ne mutasd",
 	"Place order": "Rendelés leadása",
 	"Choose your menu for ": "Válassza ki menüjét a következő napra: ",
+	"Submit order": "Leadom a rendelést",
+	"Edit order": "Rendelés szerkesztése",
 	"Save order": "Rendelés elmentése",
+	"Selected": "Kiválasztva",
 	"Wait a minute, you haven't selected anything! Are you not hungry?": "Hoppá nem választottál semmit. Nem vagy éhes?",
 	"Order saved.": "Rendelés elmentve.",
 	"You are only allowed to pick one of each categories of meals (main dish, dessert, etc.) Please modify your order accordingly": 
 		"Minden kategóriából (levesből/főételből/desszertből stb.) csak egyet szabad választani. Kérjük ilyne módon állítsa össze rendelését",
-	"Create new admin user": "Új adminisztrátor létrehozása"
+	"Create new admin user": "Új adminisztrátor létrehozása",
+	"Orders for": "Rendelések: ",
+	"Who ordered what": "Ki mit rendelt",
+	"Please give us your name, and the department you work for.": "Kérjük, adja meg nevét, és az Önhöz tartozó részleget."
 }

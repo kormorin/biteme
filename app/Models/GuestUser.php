@@ -18,8 +18,8 @@ class GuestUser extends Authenticatable
     	return $this->belongsTo(Department::class);
     }
 
-    public function registrationCompleted()
+    public function getCompletedRegistrationAttribute()
     {
-    	$this->name != '' && !is_null($this->department_id);
+    	return $this->name != '' && !is_null($this->department_id);
     }
 }

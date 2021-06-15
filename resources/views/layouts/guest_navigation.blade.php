@@ -29,9 +29,14 @@
                     <x-nav-link :href="route('guest.profile')" :active="request()->routeIs('guest.profile')">
                         {{ __('Profile') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('guest.place_order')" :active="request()->routeIs('guest.place_order')">
-                        {{ __('Place order') }}
-                    </x-nav-link>
+                    @can('completed-registration')
+                        <x-nav-link :href="route('guest.place_order')" :active="request()->routeIs('guest.place_order')">
+                            {{ __('Place order') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('guest.department_list')" :active="request()->routeIs('guest.department_list')">
+                            {{ __('My department') }}
+                        </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -83,9 +88,14 @@
             <x-responsive-nav-link :href="route('guest.profile')" :active="request()->routeIs('guest.profile')">
                         {{ __('Profile') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('guest.place_order')" :active="request()->routeIs('guest.place_order')">
-                        {{ __('Place order') }}
-            </x-responsive-nav-link>
+            @can('completed-registration')
+                <x-responsive-nav-link :href="route('guest.place_order')" :active="request()->routeIs('guest.place_order')">
+                            {{ __('Place order') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('guest.department_list')" :active="request()->routeIs('guest.department_list')">
+                            {{ __('My department') }}
+                </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->

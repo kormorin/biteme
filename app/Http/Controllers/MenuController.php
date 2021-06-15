@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dish;
 use App\Models\Menu;
+use App\Models\OrderItem;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -30,5 +31,24 @@ class MenuController extends Controller
         $day = Carbon::parse($day)->format('Y. m. d.');
 
     	return view('menu_creation', compact('day', 'menu'));
+    }
+
+    public function destroy(Request $request)
+    {
+        $menu = Menu::find($request->menu_id);
+
+        $order_ids = $menu->orders->map->id->toArray();
+        OrderItem::whereIn('order_id', $order_ids)->delete();
+        
+        foreach($menu->dishes as $dish)
+        {
+            $dish->tags()->sync([]);
+        }
+
+        $menu->orders()->delete();
+        $menu->dishes()->delete();
+        $menu->delete();
+
+        return redirect('');
     }
 }

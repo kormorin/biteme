@@ -18,7 +18,7 @@ class GuestProfileController extends Controller
     {
     	$request->validate([
     		'name' => 'required',
-    		'email' => 'required',
+    		'email' => 'required|unique:guest_users',
     		'department' => 'required'
     	]);
 

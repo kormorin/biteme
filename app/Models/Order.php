@@ -9,6 +9,11 @@ class Order extends Model
 {
     use HasFactory;
 
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
+
     public function department()
     {
     	return $this->belongsTo(Department::class);
@@ -32,5 +37,20 @@ class Order extends Model
     public function getDepartmentNameAttribute()
     {
     	return $this->department->nameText;
+    }
+
+    public function getUserNameAttribute()
+    {
+        return $this->user->name;
+    }
+
+    public function getDishesAttribute()
+    {
+        return $this->items->map->dish;
+    }
+
+    public function getDishNamesAttribute()
+    {
+        return $this->items->map->dish->implode('nameText', ', ');
     }
 }

@@ -23,10 +23,10 @@ class PlaceOrderController extends Controller
     	if(!$menu)
     	{
 			$error = __('The menu for this day is not yet available.');
-			return back()->withErrors([$error]);    		
+			return redirectToRoute('menu')->withErrors([$error]);    		
     	}
 
-    	$dishes = $menu->dishes()->with('type')->orderBy('type_id', 'asc')->get();
+    	$dishes = $menu->dishes()->listable()->with('type')->orderBy('type_id', 'asc')->get();
 
     	$dish_groups = $dishes->groupBy->typeName;
         $day = Carbon::parse($day)->format('Y. m. d.');
@@ -41,15 +41,24 @@ class PlaceOrderController extends Controller
 
     public function placeOrder(Request $request, $day)
     {
+/*
+        if(!auth()->user()->registrationCompleted)
+        {
+            $error = __('Looks like your registration is not yet complete. Please go to the "Profile" page and save your name and the department.');
+            return back()->withErrors([$error]);
+        }
+*/
         if(!$request->has('dishes') || !is_array($request->dishes))
         {
             $error = __('Wait a minute, you haven\'t selected anything! Are you not hungry?');
             return back()->withErrors([$error]);
         }
 
+
     	$dishes = Dish::whereIn('id', $request->dishes)->listable()->get();
     	$menu = Menu::where('served_at', $day)->first();
 
+//        dd($request->dishes);
 		if($dishes->isEmpty())
 		{
 			$error = __('Wait a minute, you haven\'t selected anything! Are you not hungry?');

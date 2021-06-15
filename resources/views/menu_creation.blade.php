@@ -31,12 +31,20 @@
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 {{ __('Name (english)') }}
                                             </th>
+                                            @foreach(\App\Models\Tag::all() as $tag)
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    {{ $tag->name }}
+                                                </th>
+                                            @endforeach
+
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 &nbsp;
                                             </th>
+                                            {{--
                                             <th scope="col" class="relative px-6 py-3">
                                                 <span class="sr-only">Edit</span>
                                             </th>
+                                                --}}
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
@@ -52,6 +60,18 @@
                 </div>
             </div>
         </div>
+
+        <div class="p-6 my-2 bg-white border-b border-gray-200 flex justify-content">
+            <form method="POST" action="{{ route('delete_menu') }}">
+                {{ csrf_field() }}
+                <input type="hidden" name="menu_id" value="{{ $menu->id }}">
+                <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-0bold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-green-900 focus:ring focus:ring-green-300 disabled:opacity-25 transition">
+                    {{ __('Delete menu') }}
+
+                </button>
+            </form>
+        </div>
+
     </div>
 </div>
 </x-app-layout>

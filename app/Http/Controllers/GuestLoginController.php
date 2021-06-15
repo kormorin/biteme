@@ -27,6 +27,7 @@ class GuestLoginController extends Controller
         {
 	        $user_exists = GuestUser::where('email', $request->email)->exists();
 
+//            dd($user_exists);
 	        if(!$user_exists)
 	        {
 	        	$new_user = GuestUser::create([
@@ -38,7 +39,7 @@ class GuestLoginController extends Controller
 
 	        	auth('guest_users')->login($new_user);
 
-	        	return redirect(route('guest_login'));
+	        	return redirect(route('guest.profile'));
 	        }
         }
 
