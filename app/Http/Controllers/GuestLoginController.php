@@ -27,7 +27,6 @@ class GuestLoginController extends Controller
         {
 	        $user_exists = GuestUser::where('email', $request->email)->exists();
 
-//            dd($user_exists);
 	        if(!$user_exists)
 	        {
 	        	$new_user = GuestUser::create([
