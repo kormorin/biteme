@@ -42,7 +42,6 @@ class GuestLoginController extends Controller
 	        }
         }
 
-//    	dd($credentials);
         if (Auth::guard('guest_users')->attempt($credentials, $remember_me)) {
             $request->session()->regenerate();
 
