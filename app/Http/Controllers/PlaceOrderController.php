@@ -23,7 +23,7 @@ class PlaceOrderController extends Controller
     	if(!$menu)
     	{
 			$error = __('The menu for this day is not yet available.');
-			return back()->withErrors([$error]);    		
+			return redirect('place_order')->withErrors([$error]);    		
     	}
 
     	$dishes = $menu->dishes()->listable()->with('type')->orderBy('type_id', 'asc')->get();
@@ -45,13 +45,13 @@ class PlaceOrderController extends Controller
         if(!auth()->user()->registrationCompleted)
         {
             $error = __('Looks like your registration is not yet complete. Please go to the "Profile" page and save your name and the department.');
-            return back()->withErrors([$error]);
+            return redirect('place_order')->withErrors([$error]);
         }
 */
         if(!$request->has('dishes') || !is_array($request->dishes))
         {
             $error = __('Wait a minute, you haven\'t selected anything! Are you not hungry?');
-            return back()->withErrors([$error]);
+            return redirect('place_order')->withErrors([$error]);
         }
 
 
@@ -62,7 +62,7 @@ class PlaceOrderController extends Controller
 		if($dishes->isEmpty())
 		{
 			$error = __('Wait a minute, you haven\'t selected anything! Are you not hungry?');
-			return back()->withErrors([$error]);
+			return redirect('place_order')->withErrors([$error]);
 		}
  
     	$counts_by_type = $dishes->groupBy('type_id')->map->count();
@@ -72,7 +72,7 @@ class PlaceOrderController extends Controller
     		if($count > 1)
     		{
     			$error = __('You are only allowed to pick one of each categories of meals (main dish, dessert, etc.) Please modify your order accordingly');
-    			return back()->withErrors([$error]);
+    			return redirect('place_order')->withErrors([$error]);
     		}
     	}
 
@@ -104,6 +104,6 @@ class PlaceOrderController extends Controller
 
     	}    		
 
-    	return back()->with('success', __('Order saved.'));
+    	return redirect('place_order')->with('success', __('Order saved.'));
     }
 }
