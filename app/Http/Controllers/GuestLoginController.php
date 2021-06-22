@@ -45,7 +45,7 @@ class GuestLoginController extends Controller
         if (Auth::guard('guest_users')->attempt($credentials, $remember_me)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('profile');
+            return redirect()->intended('');
         }
 
         return back()->withErrors([
