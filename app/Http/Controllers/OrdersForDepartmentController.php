@@ -23,7 +23,7 @@ class OrdersForDepartmentController extends Controller
     	if(!$menu)
     	{
 			$error = __('The menu for this day is not yet available.');
-            return redirect('place_order')->withErrors([$error]);           
+            return redirect('department_list')->withErrors([$error]);           
     	}
 
     	$orders = Order::where('menu_id', $menu->id)->where('department_id', $department_id)->get();
@@ -31,7 +31,7 @@ class OrdersForDepartmentController extends Controller
     	if($orders->isEmpty())
     	{
 			$error = __('So fare there was not order added for this day:' . $day);
-			return back()->withErrors([$error]);    		
+            return redirect('department_list')->withErrors([$error]);           
     	}
     	$department = Department::find(auth()->user()->department_id);
 /*
