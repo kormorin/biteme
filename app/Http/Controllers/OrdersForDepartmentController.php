@@ -23,7 +23,7 @@ class OrdersForDepartmentController extends Controller
     	if(!$menu)
     	{
 			$error = __('The menu for this day is not yet available.');
-			return back()->withErrors([$error]);    		
+            return redirect('place_order')->withErrors([$error]);           
     	}
 
     	$orders = Order::where('menu_id', $menu->id)->where('department_id', $department_id)->get();
