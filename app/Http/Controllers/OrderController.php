@@ -20,10 +20,10 @@ class OrderController extends Controller
     	$menu = Menu::where('served_at', $day)->first();
 
     	if(!$menu)
-    		return back()->withErrors([__('There is no menu for this day.')]);
+    		return redirect('orders')->withErrors([__('There is no menu for this day.')]);
 
     	if(!$menu->orders)
-    		return back()->withErrors([__('There are no orders for this day\'s menu.')]);
+    		return redirect('orders')->withErrors([__('There are no orders for this day\'s menu.')]);
 
     	$departments = Department::all();
 
